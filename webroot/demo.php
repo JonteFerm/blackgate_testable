@@ -11,22 +11,35 @@ $di->setShared('db', function() {
 $di->session();
 
 $app->router->add('', function() use ($app){
-	$db = new \Mos\Database\CDatabaseBasic();
 	$options = new \Jofe\Blackgate\COptions();
-	$auth = new \Jofe\BlackGate\CAuthenthicator($options);
+
+	//Set the options
+	$options->setDB($app->db);
+	$options->setTableName('user');
+	$options->setIdColName('acronym');
+	$options->setPassColName('password');
+
+	//Instantiate the authenticator with the options
+	$auth = new \Jofe\Blackgate\CAuthenticator($options);
 	$app->theme->setTitle("Hem");
+	$output = null;
+
+	if(isset($_POST['id']) && isset($_POST['password'])){
+		
+		$output = $auth->apply($_POST['id'], $_POST['password']);
+	}
 
 	$form ="
 		<form method=post>
 		    <fieldset>
 		    <legend>Login</legend>
-		    <p><label>User ID:<br/><input type='text' name='content' /></label></p>
-		    <p><label>Password:<br/><input type='password' name='name' value=''/></label></p>
+		    <p><label>User ID:<br/><input type='text' name='id' /></label></p>
+		    <p><label>Password:<br/><input type='password' name='password'/></label></p>
 		    <p><input type='submit' name='doSave' value='Save' /></p>
+		    $output
 		    </fieldset>
 		    </form>
 		</div>
-		<article>
 		";
 	
 
@@ -34,9 +47,6 @@ $app->router->add('', function() use ($app){
 		'content' => $form
 	]);
 
-	if(isset($_POST['id']) && isset($_POST['password'])){
-
-	}
 
 });
 

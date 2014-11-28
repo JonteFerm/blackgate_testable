@@ -5,10 +5,12 @@ class CAuthenticator
 {
 	private $options;
 	private $output = null;
+	private $db;
 
-	public function __construct($options)
+	public function __construct(COptions $options)
 	{
-		$this->$options = $options;
+		$this->options = $options;
+		$this->db = $options->getDB();
 	}
 
 	public function apply($id = null, $password = null)
@@ -16,18 +18,23 @@ class CAuthenticator
 		strip_tags($id);
 		strip_tags($password);
 
-		$valid = validate($id, $password);
-
+		$valid = $this->validate($id, $password);
+ 
 		if(!$valid){
 			$this->output = "You have to enter the user id and password.";
-		}else{
 
+			
 		}
+		$this->compare($id, $password);
+		return $this->output;
 	}
 
-	private function compare()
+	private function compare($id, $password)
 	{
-
+		$idCol = $this->options->getIdColName();
+		$sql = "SELECT * FROM user WHERE $idCol = ?;";
+		$res = $this->db->executeFetchAll($sql, array($id));
+		echo  print_r($res);
 	}
 
 

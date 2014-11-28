@@ -3,13 +3,11 @@ namespace Jofe\Blackgate;
 
 class COptions
 {
-	private $db; //The PDO object.
+	private $db; //The CDatabaseBasic object.
 	private $tableName; //Name of the table storing the user information.
 	private $idColName; //Name of the identification column.
 	private $passColName; //Name of the password column.
 	private $salt = PASSWORD_DEFAULT; //The salt which the password is hashed with.
-
-
 
 	public function setDB($db){
 		$this->db = $db;
