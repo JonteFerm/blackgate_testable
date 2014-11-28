@@ -1,10 +1,8 @@
 <?php
 namespace Jofe\Blackgate;
 
-class CAuthenticator implements \Anax\DI\IInjectionAware
+class CAuthenticator
 {
-	use \Anax\DI\TInjectable;
-
 	private $options;
 	private $output = null;
 
