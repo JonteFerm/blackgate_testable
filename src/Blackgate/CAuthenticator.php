@@ -22,21 +22,42 @@ class CAuthenticator
  
 		if(!$valid){
 			$this->output = "You have to enter the user id and password.";
+		}else{
+			$matching = $this->compare($id, $password);
 
-			
+			if($matching){
+				$this->output = "Access granted";
+			}else{
+				$this->output = "Access denied. Password or username is invalid.";
+			}
 		}
-		$this->compare($id, $password);
+
 		return $this->output;
 	}
 
 	private function compare($id, $password)
 	{
 		$idCol = $this->options->getIdColName();
+		$pwCol = $this->options->getPassColName();
+		$salt = $this->options->getSalt();
+
 		$sql = "SELECT * FROM user WHERE $idCol = ?;";
 		$res = $this->db->executeFetchAll($sql, array($id));
-		echo  print_r($res);
-	}
 
+		if($res){
+			$dbPassword = $res[0]->$pwCol;
+
+			if(password_verify($password, $dbPassword)){
+				return true;
+			}else{
+				return false;
+			}
+		}else{
+			return false;
+		}
+
+
+	}
 
 	private function validate($id, $password)
 	{
@@ -45,5 +66,9 @@ class CAuthenticator
 		}
 
 		return true;
+	}
+
+	private function lockOutUser($id){
+
 	}
 }
