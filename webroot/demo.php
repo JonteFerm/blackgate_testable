@@ -1,7 +1,7 @@
 <?php
 require __DIR__.'/config_with_app.php';
 $app = new \Anax\MVC\CApplicationBasic($di);
-$app->theme->configure(ANAX_APP_PATH . 'config/blackgate_demo_theme.php');
+//$app->theme->configure(ANAX_APP_PATH . 'config/blackgate_demo_theme.php');
 $di->setShared('db', function() {
     $db = new \Mos\Database\CDatabaseBasic();
     $db->setOptions(require ANAX_APP_PATH . 'config/config_mysql.php');
@@ -11,11 +11,16 @@ $di->setShared('db', function() {
 
 $di->session();
 
-$app->router->add('', function() use ($app){
+$di->set('BlackgateOptions', function() use ($di) {
 	$options = new \Jofe\Blackgate\COptions();
+	$options->setDI($di);
+	return $options;
+});
+
+$app->router->add('', function() use ($app){
+	$options = $app->BlackgateOptions;
 
 	//Set the REQUIRED options
-	$options->setDB($app->db);
 	$options->setTableName('user');
 	$options->setIdColName('acronym');
 	$options->setPassColName('password');
@@ -30,7 +35,8 @@ $app->router->add('', function() use ($app){
 
 	if(isset($_POST['doSubmit'])){
 		if(isset($_POST['id']) && isset($_POST['password'])){
-			$output = $auth->apply($_POST['id'], $_POST['password']);
+			$auth->apply($_POST['id'], $_POST['password']);
+			$output = $auth->getOutput();
 		}
 	}
 

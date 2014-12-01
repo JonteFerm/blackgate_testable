@@ -1,19 +1,21 @@
 <?php
 namespace Jofe\Blackgate;
 
-class COptions
+class COptions implements \Anax\DI\IInjectionAware
 {
-	private $db; //The CDatabaseBasic object.
-	private $tableName; //Name of the table storing the user information.
-	private $idColName; //Name of the identification column.
-	private $passColName; //Name of the password column.
-	private $actColName; //Name of the activate columnn.
-	private $delColName; //Name of the deleted column.
+	use \Anax\DI\TInjectable;
+
+	private $dBase; //The CDatabaseBasic object.
+	private $tableName = 'users'; //Name of the table storing the user information.
+	private $idColName = 'acronym'; //Name of the identification column.
+	private $passColName = 'password'; //Name of the password column.
+	private $actColName = 'active';//Name of the activate columnn.
+	private $delColName = 'deleted'; //Name of the deleted column.
 	private $salt = PASSWORD_DEFAULT; //The salt which the password is hashed with.
 
-
-	public function setDB($db){
-		$this->db = $db;
+	public function initialize()
+	{
+	    $this->dBase = $this->db;
 	}
 
 	public function setTableName($tableName){

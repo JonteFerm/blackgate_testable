@@ -3,13 +3,11 @@
     "type": "library",
     "description": "Classes for user authentication.",
     "keywords": ["html", "users", "authentication", "MVC"],
-    "homepage": "",
     "license": "MIT",
     "authors": [
         {
             "name": "Jonathan Ferm",
             "email": "jonte_ferm@hotmail.com",
-            "homepage": "",
             "role": "Developer"
         }
     ],
@@ -18,8 +16,5 @@
     },
     "autoload": {
         "psr-4": { "Jofe\\": "src/" }
-    }    
-    "require-dev": {
-        "mos/cdatabase": "dev-master"
     }
 }

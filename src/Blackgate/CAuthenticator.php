@@ -34,6 +34,7 @@ class CAuthenticator
  
 		if(!$valid){
 			$this->output = "You have to enter the user id and password.";
+			return false;
 		}else{
 			$matching = $this->compare($id, $password);
 
@@ -41,14 +42,13 @@ class CAuthenticator
 				$this->output = "Access granted.";
 			}else{
 				$this->output = "Access denied. Password or username is invalid.";
+				return false;
 			}
 		}
 
-		if($this->lockOutMessage != null){
-			return $this->lockOutMessage;
-		}
 
-		return $this->output;
+
+		return true;
 		
 	}
 
@@ -141,9 +141,14 @@ class CAuthenticator
 			return "There is no such user!";
 		}
 
+	}
 
+	public function getOutput(){
 
+		if($this->lockOutMessage != null){
+			return $this->lockOutMessage;
+		}
 
-
+		return $this->output;
 	}
 }
