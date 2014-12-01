@@ -71,7 +71,8 @@ $app->router->add('', function() use ($app){
 		";
 
 	$content = $form2.$form;
-	$app->views->add("me/page", [
+	$app->views->add("default/page", [
+		'title' =>	'Blackgate Demo',
 		'content' => $content
 	]);
 

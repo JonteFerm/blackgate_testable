@@ -5,7 +5,6 @@ class COptions implements \Anax\DI\IInjectionAware
 {
 	use \Anax\DI\TInjectable;
 
-	private $dBase; //The CDatabaseBasic object.
 	private $tableName = 'users'; //Name of the table storing the user information.
 	private $idColName = 'acronym'; //Name of the identification column.
 	private $passColName = 'password'; //Name of the password column.
@@ -15,7 +14,7 @@ class COptions implements \Anax\DI\IInjectionAware
 
 	public function initialize()
 	{
-	    $this->dBase = $this->db;
+	    
 	}
 
 	public function setTableName($tableName){
