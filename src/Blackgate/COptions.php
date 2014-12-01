@@ -7,7 +7,10 @@ class COptions
 	private $tableName; //Name of the table storing the user information.
 	private $idColName; //Name of the identification column.
 	private $passColName; //Name of the password column.
+	private $actColName; //Name of the activate columnn.
+	private $delColName; //Name of the deleted column.
 	private $salt = PASSWORD_DEFAULT; //The salt which the password is hashed with.
+
 
 	public function setDB($db){
 		$this->db = $db;
@@ -23,6 +26,14 @@ class COptions
 
 	public function setPassColName($passColName){
 		$this->passColName = $passColName;
+	}
+
+	public function setActColName($actColName){
+		$this->actColName = $actColName;
+	}
+
+	public function setDelColName($delColName){
+		$this->delColName = $delColName;
 	}
 
 	public function setSalt($salt){
@@ -47,6 +58,14 @@ class COptions
 
 	public function getSalt(){
 		return $this->salt;
+	}
+
+	public function getActColName(){
+		return $this->actColName;
+	}
+
+	public function getDelColName(){
+		return $this->delColName;
 	}
 
 }

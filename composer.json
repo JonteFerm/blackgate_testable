@@ -2,7 +2,7 @@
     "name": "jofe/blackgate",    
     "type": "library",
     "description": "Classes for user authentication.",
-    "keywords": ["html", "users", "authentication"],
+    "keywords": ["html", "users", "authentication", "MVC"],
     "homepage": "",
     "license": "MIT",
     "authors": [
@@ -18,5 +18,8 @@
     },
     "autoload": {
         "psr-4": { "Jofe\\": "src/" }
+    }    
+    "require-dev": {
+        "mos/cdatabase": "dev-master"
     }
 }
