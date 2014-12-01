@@ -41,6 +41,8 @@ $auth = new \Jofe\Blackgate\CAuthenticator($options);
 
 And that is everything you need to do to start working with the functions of CAuthenticator.
 
+However, in the webroot-folder you can find a file named demo.php which you can use in your Anax-MVC to try out the functionality of blackgate. In this file you can also se exactly how you must do to set it all up!
+
 NOTE that the default user table is contained in the webroot of blackgate.
 
 So... what can I use all this stuff for?
