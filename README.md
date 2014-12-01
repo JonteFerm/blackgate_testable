@@ -1,7 +1,5 @@
 ![Blackgate logo](webroot/img/blackgate.jpg)
 
-blackgate
-==========
 Blackgate is a user authentication module for use with Anax-MVC and the mos/cdatabase package. The module can be set up to use with your own database table or you could use the default one contained. The module uses a user lockout system which will soft-delete a user after three failed attempts in a session.
 
 How to install?
