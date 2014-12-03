@@ -16,5 +16,8 @@
     },
     "autoload": {
         "psr-4": { "Jofe\\": "src/" }
+    },
+    "require-dev": {
+        "mos/cdatabase": "dev-master"
     }
 }
