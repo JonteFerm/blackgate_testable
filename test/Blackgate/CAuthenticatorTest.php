@@ -5,8 +5,8 @@ class CAuthenticatorTest extends \PHPUnit_Framework_TestCase
 {
 	public function testApply(){
 
-		$options = new \Jofe\BlackGate\COptions();
-		$el = new \Jofe\BlackGate\CAuthenticator($options);
+		$options = new \Jofe\Blackgate\COptions();
+		$el = new \Jofe\Blackgate\CAuthenticator($options);
 
 		$res = $el->apply('doe', 'doe');
 		$exp = true;
@@ -25,8 +25,8 @@ class CAuthenticatorTest extends \PHPUnit_Framework_TestCase
 	}
 
 	public function testGetOutput(){
-		$options = new \Jofe\BlackGate\COptions();
-		$el = new \Jofe\BlackGate\CAuthenticator($options);
+		$options = new \Jofe\Blackgate\COptions();
+		$el = new \Jofe\Blackgate\CAuthenticator($options);
 
 		$el->apply('doe', 'doe');
 		$res = $el->getOutPut();
