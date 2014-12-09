@@ -44,6 +44,16 @@ class COptionsTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals($res, $exp, "Created element name missmatch.");		
 	}
 
+	public function testSetDelColName(){
+		$el = new \Jofe\Blackgate\COPtions();
+		$el->setDelColName('removed');
+
+		$res = $el->getDelColName();
+		$exp = 'removed';
+
+		$this->assertEquals($res, $exp, "Created element name missmatch.");	
+	}
+
 	public function testSetActColName(){
 		$el = new \Jofe\Blackgate\COptions();
 		$el->setActColName('act');
@@ -65,33 +75,33 @@ class COptionsTest extends \PHPUnit_Framework_TestCase
 		
 	}
 
-	public function TestGetTableName(){
+	public function testGetTableName(){
 		$el = new \Jofe\Blackgate\COPtions();
-		$res = $el->getSalt();
+		$res = $el->getTableName();
 		$exp = 'users';
 
 		$this->assertEquals($res, $exp, "Created element name missmatch.");	
 	}
 
-	public function TestGetIdColName(){
+	public function testGetIdColName(){
 		$el = new \Jofe\Blackgate\COPtions();
 
-		$res = $el->getSalt();
+		$res = $el->getIdColName();
 		$exp = 'acronym';
 
 		$this->assertEquals($res, $exp, "Created element name missmatch.");	
 	}
 
-	public function TestGetPassColName(){
+	public function testGetPassColName(){
 		$el = new \Jofe\Blackgate\COPtions();
 
-		$res = $el->getSalt();
+		$res = $el->getPassColName();
 		$exp = 'password';
 
 		$this->assertEquals($res, $exp, "Created element name missmatch.");	
 	}
 
-	public function TestGetSalt(){
+	public function testGetSalt(){
 		$el = new \Jofe\Blackgate\COPtions();
 
 		$res = $el->getSalt();
@@ -100,19 +110,19 @@ class COptionsTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals($res, $exp, "Created element name missmatch.");	
 	}
 
-	public function TestGetActColName(){
+	public function testGetActColName(){
 		$el = new \Jofe\Blackgate\COPtions();
 
-		$res = $el->getSalt();
+		$res = $el->getActColName();
 		$exp = 'active';
 
 		$this->assertEquals($res, $exp, "Created element name missmatch.");	
 	}
 
-	public function TestGetDelColName(){
+	public function testGetDelColName(){
 		$el = new \Jofe\Blackgate\COPtions();
 
-		$res = $el->getSalt();
+		$res = $el->getDelColName();
 		$exp = 'deleted';
 
 		$this->assertEquals($res, $exp, "Created element name missmatch.");	

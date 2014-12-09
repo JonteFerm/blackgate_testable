@@ -54,6 +54,7 @@ class CAuthenticator
 
 	private function compare($id, $password)
 	{
+
 		$idCol = $this->options->getIdColName();
 		$pwCol = $this->options->getPassColName();
 		$salt = $this->options->getSalt();

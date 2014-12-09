@@ -3,10 +3,6 @@ namespace Jofe\Testing;
 
 class CDatabaseBasic
 {
-    private $query = null;
-    private $params = array();
-    private $testRes = array();
-
 
     public function __construct()
     {
@@ -18,11 +14,13 @@ class CDatabaseBasic
         $query = null,
         $params = [],
         $debug = false
-    ) {
-
-       
+    ){
+        $mockRes = new \Jofe\Testing\CMockResult();
+        $testRes = array($mockRes);
         
-        return $this->testRes;
+        $this->params = $params;
+        
+        return $testRes;
     }
 
     public function execute($query = null,$params = []) {
@@ -32,16 +30,7 @@ class CDatabaseBasic
 
     }
 
-    public function getQuery(){
-        return $this->query;
-    }
 
-    public function getParams(){
-        return $this->params;
-    }
 
-    public function setTestRes($testRes){
-        $this->testRes = $testRes;
-    }
 
 }

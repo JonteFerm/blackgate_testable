@@ -22,6 +22,7 @@ trait TInjectable
 
     public function __call($service, $arguments = [])
     {
+        return new \Jofe\Testing\CDatabaseBasic();
         /*$this->$service = $this->di->get($service);
         return $this->$service;*/
 
