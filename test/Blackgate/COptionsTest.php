@@ -5,7 +5,7 @@ class COptionsTest extends \PHPUnit_Framework_TestCase
 {
 	public function testGetDB(){
 
-		$el = new \Jofe\BlackGate\COptions();
+		$el = new \Jofe\Blackgate\COptions();
 
 		$res = get_class($el->getDB());
 		$exp = 'Jofe\Testing\CDatabaseBasic';
