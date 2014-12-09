@@ -2,9 +2,9 @@ imports:
     - php
 
 filter:
-    excluded_paths: [vendor/*, tests/*]
+    excluded_paths: [test/*]
 
 tools:
-    external_code_coverage: true
+    external_code_coverage: false
         
 
