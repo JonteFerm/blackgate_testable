@@ -13,19 +13,14 @@ trait TInjectable
 
     public function __get($service)
     {
-        /*$this->$service = $this->di->get($service);
-        return $this->$service;*/
 
-        return new \Testing\CDatabaseBasic();
+        return new \Mockups\CDatabaseBasic();
 
     }
 
     public function __call($service, $arguments = [])
     {
-        return new \Testing\CDatabaseBasic();
-        /*$this->$service = $this->di->get($service);
-        return $this->$service;*/
-
+        return new \Mockups\CDatabaseBasic();
         
     }
 }

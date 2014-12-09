@@ -1,5 +1,6 @@
 <?php
-namespace Testing;
+namespace Mockups;
+
 class CMockResult   
 {
     public $id = 1;

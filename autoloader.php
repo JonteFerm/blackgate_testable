@@ -15,7 +15,6 @@
 spl_autoload_register(function ($class) {
 
     // project-specific namespace prefix
-    //$prefix = 'Foo\\Bar\\';
     $prefix = 'Jofe\\';
 
     // base directory for the namespace prefix
@@ -45,11 +44,10 @@ spl_autoload_register(function ($class) {
 spl_autoload_register(function ($class) {
 
     // project-specific namespace prefix
-    //$prefix = 'Foo\\Bar\\';
     $prefix = 'Anax\\';
 
     // base directory for the namespace prefix
-    $base_dir = __DIR__ . '/testing/';
+    $base_dir = __DIR__ . '/mockups/';
 
     // does the class use the namespace prefix?
     $len = strlen($prefix);
@@ -75,11 +73,10 @@ spl_autoload_register(function ($class) {
 spl_autoload_register(function ($class) {
 
     // project-specific namespace prefix
-    //$prefix = 'Foo\\Bar\\';
-    $prefix = 'Testing\\';
+    $prefix = 'Mockups\\';
 
     // base directory for the namespace prefix
-    $base_dir = __DIR__ . '/testing/';
+    $base_dir = __DIR__ . '/mockups/';
 
     // does the class use the namespace prefix?
     $len = strlen($prefix);
