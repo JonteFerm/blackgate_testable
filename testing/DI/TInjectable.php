@@ -16,13 +16,13 @@ trait TInjectable
         /*$this->$service = $this->di->get($service);
         return $this->$service;*/
 
-        return new \Jofe\Testing\CDatabaseBasic();
+        return new \Testing\CDatabaseBasic();
 
     }
 
     public function __call($service, $arguments = [])
     {
-        return new \Jofe\Testing\CDatabaseBasic();
+        return new \Testing\CDatabaseBasic();
         /*$this->$service = $this->di->get($service);
         return $this->$service;*/
 

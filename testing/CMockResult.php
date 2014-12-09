@@ -1,5 +1,5 @@
 <?php
-namespace Jofe\Testing;
+namespace Testing;
 class CMockResult   
 {
     public $id = 1;

@@ -8,7 +8,7 @@ class COptionsTest extends \PHPUnit_Framework_TestCase
 		$el = new \Jofe\Blackgate\COptions();
 
 		$res = get_class($el->getDB());
-		$exp = 'Jofe\Testing\CDatabaseBasic';
+		$exp = 'Testing\CDatabaseBasic';
 
 		$this->assertEquals($res, $exp, "Created element name missmatch.");
 	}

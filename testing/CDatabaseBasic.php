@@ -1,5 +1,5 @@
 <?php
-namespace Jofe\Testing;
+namespace Testing;
 
 class CDatabaseBasic
 {
@@ -15,7 +15,7 @@ class CDatabaseBasic
         $params = [],
         $debug = false
     ){
-        $mockRes = new \Jofe\Testing\CMockResult();
+        $mockRes = new \Testing\CMockResult();
         $testRes = array($mockRes);
         
         $this->params = $params;
